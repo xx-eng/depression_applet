@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/article/article",
+    "pages/question/question",
+    "pages/index/myArticle/myArticle",
+    "pages/index/add/add",
+    "pages/index/update/update",
+    "pages/index/article/article",
+    "pages/question/myquestion/myquestion",
+    "pages/question/myAnswer/myAnswer",
+    "pages/question/add/add",
+    "pages/question/updateQuestion/updateQuestion",
+    "pages/question/addAnswer/addAnswer",
+    "pages/question/updateAnswer/updateAnswer",
+    "pages/question/aQuestion/aQuestion",
+    "pages/posts/posts",
+    "pages/posts/add/add",
+    "pages/posts/reply/reply",
+    "pages/record/record",
+    "pages/record/password/password",
+    "pages/record/edit/edit",
+    "pages/record/get/get",
+    "pages/record/test/test",
+    "pages/article/question_test/question_test",
+    "pages/Login/Login",
+    "pages/Register/Register",
+    "pages/posts/show/show"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index"
+      },
+      {
+        "pagePath": "pages/question/question"
+      },
+      {
+        "pagePath": "pages/posts/posts"
+      },
+      {
+        "pagePath": "pages/record/record"
+      }
+    ]
+  },
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
+}

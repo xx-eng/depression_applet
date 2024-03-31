@@ -1,0 +1,247 @@
+<template>
+	<view class="content">
+		<u-navbar title-color="#fff" back-icon-color="#ffffff" :is-fixed="true" :is-back="true" :background="background"
+		 :back-text-style="{color: '#fff'}" :title="add_title" :back-icon-name="backIconName" :back-text="backText">
+		</u-navbar>
+
+	<!-- {{model.contentHtml}} -->
+		<view class="acontent">
+			<u-form :model="model" :rules="rules" ref="uForm" :errorType="errorType">
+				<u-form-item :leftIconStyle="{color: '#888', fontSize: '32rpx'}" label-width="120" :label-position="labelPosition"
+				 label="账号" prop="account">
+					<u-input  placeholder="请输入账号" v-model="model.account" type="text"></u-input>
+				</u-form-item>
+				<u-form-item :leftIconStyle="{color: '#888', fontSize: '32rpx'}" label-width="120" :label-position="labelPosition"
+				 label="电话" prop="mobile">
+					<u-input  placeholder="请输入电话" v-model="model.mobile" type="text"></u-input>
+				</u-form-item>
+				<u-form-item :leftIconStyle="{color: '#888', fontSize: '32rpx'}" label-width="120" :label-position="labelPosition"
+				 label="邮箱" prop="email">
+					<u-input  placeholder="请输入邮箱" v-model="model.email" type="text"></u-input>
+				</u-form-item>
+				<u-form-item :leftIconStyle="{color: '#888', fontSize: '32rpx'}" label-width="120" :label-position="labelPosition"
+				 label="密码" prop="email">
+					<u-input  placeholder="请输入密码" v-model="model.password" type="text"></u-input>
+				</u-form-item>
+				<u-form-item :label-position="labelPosition" label="上传图片" prop="photo" label-width="150">
+					<!-- <u-upload :beforeUpload="beforeUpload" width="160" height="160" action="http://121.40.235.133:8080/file/upload"></u-upload> -->
+
+					<u-upload max-count="1" ref="uUpload" action="http://47.110.248.137:8080/file/upload" :auto-upload="true"></u-upload>
+					<u-button @click="submitPhoto">提交图片<text style="font-size:5pt;">(提交前点击)</text></u-button>
+
+
+
+				</u-form-item>
+			</u-form>
+			<!-- <view class="agreement">
+			<u-checkbox v-model="check" @change="checkboxChange"></u-checkbox>
+			<view class="agreement-text">
+				勾选代表同意uView的版权协议
+			</view>
+		</view> -->
+			<u-button @click="submit" style="background-color: #da8000;color: #fff;">提交</u-button>
+		</view>
+
+
+
+		<!-- <u-tabbar v-model="current" :show="show" :bg-color="bgColor" :border-top="borderTop" :list="list" :inactive-color="inactiveColor"
+		 :activeColor="activeColor" @change="gotoOther">
+		</u-tabbar> -->
+	</view>
+</template>
+
+<script>
+	import user from "@/storev/module/user.js";
+	import {addUser} from '../../api/user.js'
+	import md5 from 'md5'
+	export default {
+		data() {
+			return {
+				add_title: '添加文章',
+				backIconName: 'arrow-left',
+				backText: '',
+				background: {
+					'background-image': 'linear-gradient(45deg, rgb(219, 165, 139), rgb(244,223, 206))'
+				},
+
+				/*current: 0,
+				show: true,
+				bgColor: '#fbf1e8', //f4dfce
+				borderTop: true,
+				activeColor: '#dba58b',
+				inactiveColor: '#dba58b',
+				list: [{
+						iconPath: "file-text",
+						selectedIconPath: "file-text-fill",
+						text: '科普',
+						count: 0,
+						isDot: true,
+						customIcon: false,
+						pagePath: '/pages/index/index',
+					},
+					{
+						iconPath: "question-circle",
+						selectedIconPath: "question-circle-fill",
+						text: '问答',
+						customIcon: false,
+						pagePath: '/pages/doctor/index',
+					},
+					{
+						iconPath: "heart",
+						selectedIconPath: "heart-fill",
+						text: '动态',
+						customIcon: false,
+						pagePath: '/pages/service/index',
+					},
+					{
+						iconPath: "edit-pen",
+						selectedIconPath: "edit-pen-fill",
+						text: '记录',
+						customIcon: false,
+						pagePath: '/pages/service/index',
+					}
+				],*/
+
+				show: false,
+				typeWord: '请选择类型',
+				list: [{
+						value: '0',
+						label: '文章'
+					},
+					{
+						value: '1',
+						label: '图片'
+					}
+				],
+				
+				labelPosition: 'left',
+				codeTips: '',
+				errorType: ['message'],
+
+				requestParameters: {},
+				model: {
+					account: '',
+					mobile: '',
+					email: '',
+					password: '',
+					status: 0,
+					photoId: '',
+					url: ''
+				},
+				rules: {
+					title: [{
+						required: true,
+						message: '请输入姓名',
+						trigger: 'blur',
+					}, ],
+				}
+			}
+		},
+		onLoad() {
+
+		},
+		methods: {
+			confirm(e) {
+				console.log('e', e[0].value);
+				this.model.type = e[0].value
+				this.typeWord = e[0].label
+
+			},
+			onEditorReady() {
+				// #ifdef MP-BAIDU
+				this.editorCtx = requireDynamicLib('editorLib').createEditorContext('editorId');
+				// #endif
+
+				// #ifdef APP-PLUS || H5 ||MP-WEIXIN
+				uni.createSelectorQuery().select('#editor').context((res) => {
+					this.editorCtx = res.context
+				}).exec()
+				// #endif
+			},
+			submitPhoto() {
+				let files = [];
+				// 通过filter，筛选出上传进度为100的文件(因为某些上传失败的文件，进度值不为100，这个是可选的操作)
+				files = this.$refs.uUpload.lists.filter(val => {
+					console.log("val:", val)
+					this.model.url = val.response.data.url
+					this.model.photoId = val.response.data.id
+					console.log(':filename', this.model.url, this.model.fieId)
+					return val.progress == 100;
+
+				})
+				// 如果您不需要进行太多的处理，直接如下即可
+				// files = this.$refs.uUpload.lists;
+				console.log(this.$refs.uUpload.lists)
+			},
+			submit() {
+				console.log('提交')
+				this.$refs.uForm.validate(valid => {
+					console.log(valid)
+					if (valid) {
+						// const user = {
+						// 	 userId: user.state.userId
+						// }
+						this.model.password = md5(this.model.password)
+						this.requestParameters = Object.assign({}, this.model)
+						console.log('requestParam', this.requestParameters)
+						addUser(this.requestParameters).then(res => {
+							console.log(res)
+						}).catch(res => {
+							console.log(res)
+						})
+						// if (!this.model.agreement) return this.$u.toast('请勾选协议');
+						console.log('验证通过');
+					} else {
+						console.log('验证失败');
+					}
+				});
+			},
+		},
+		onBackPress(e) {
+			console.log("监听返回按钮事件", e);
+			//正常返回页面
+			uni.switchTab({
+				url: "/pages/index/index",
+				success: (res) => {
+					console.log(res)
+				},
+				fail: (res) => {
+					console.log(res)
+				}
+			})
+			// 此处一定要return为true，否则页面不会返回到指定路径
+			return true;
+		},
+	}
+</script>
+
+<style>
+	.acontent {
+		width: 90%;
+		margin-left: 5%;
+	}
+
+	.uni-label {
+		line-height: 40px;
+		font-size: 30pt;
+		color: #da8000;
+	}
+
+	.uni-input {
+		height: 30px;
+		line-height: 30px;
+		font-size: 15px;
+		padding: 0px;
+		background-color: #FFFFFF;
+		border: 0.5rpx solid #da8000;
+	}
+
+	.uni-textarea {
+		width: 100%;
+		border: 0.5rpx solid #da8000;
+	}
+
+	.ql-container {
+		border: 1rpx solid #da8000;
+	}
+</style>

@@ -1,0 +1,239 @@
+{
+	"easycom": {
+		// 下载安装的方式需要前面的"@/"，npm安装的方式无需"@/"
+		// 下载安装方式
+		"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue"
+		// npm安装方式
+		// "^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
+	},
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationStyle": "custom", // 隐藏系统导航栏
+				"navigationBarTextStyle": "white" // 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
+			}
+		}
+	    ,{
+            "path" : "pages/article/article",
+            "style": {
+            	"navigationStyle": "custom", // 隐藏系统导航栏
+            	"navigationBarTextStyle": "white" // 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
+            }
+            
+        }
+        ,{
+            "path" : "pages/question/question",
+            "style": {
+            	"navigationStyle": "custom", // 隐藏系统导航栏
+            	"navigationBarTextStyle": "white" // 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
+            }
+            
+        }
+        ,{
+            "path" : "pages/index/myArticle/myArticle",
+            "style": {
+            	"navigationStyle": "custom", // 隐藏系统导航栏
+            	"navigationBarTextStyle": "white" // 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
+            }
+            
+        }
+        ,{
+            "path" : "pages/index/add/add",
+            "style": {
+            	"navigationStyle": "custom", // 隐藏系统导航栏
+            	"navigationBarTextStyle": "white" // 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
+            }
+            
+        }
+        ,{
+            "path" : "pages/index/update/update",
+            "style": {
+            	"navigationStyle": "custom", // 隐藏系统导航栏
+            	"navigationBarTextStyle": "white" // 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
+            }
+            
+        }
+        ,{
+            "path" : "pages/index/article/article",
+            "style": {
+            	"navigationStyle": "custom", // 隐藏系统导航栏
+            	"navigationBarTextStyle": "white" // 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
+            }
+            
+        }
+        ,{
+            "path" : "pages/question/myquestion/myquestion",
+            "style": {
+            	"navigationStyle": "custom", // 隐藏系统导航栏
+            	"navigationBarTextStyle": "white" // 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
+            }
+            
+        }
+        ,{
+            "path" : "pages/question/myAnswer/myAnswer",
+            "style": {
+            	"navigationStyle": "custom", // 隐藏系统导航栏
+            	"navigationBarTextStyle": "white" // 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
+            }
+            
+        }
+        ,{
+            "path" : "pages/question/add/add",
+            "style": {
+            	"navigationStyle": "custom", // 隐藏系统导航栏
+            	"navigationBarTextStyle": "white" // 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
+            }
+            
+            
+        }
+        ,{
+            "path" : "pages/question/updateQuestion/updateQuestion",
+            "style": {
+            	"navigationStyle": "custom", // 隐藏系统导航栏
+            	"navigationBarTextStyle": "white" // 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
+            }
+            
+        }
+        ,{
+            "path" : "pages/question/addAnswer/addAnswer",
+            "style": {
+            	"navigationStyle": "custom", // 隐藏系统导航栏
+            	"navigationBarTextStyle": "white" // 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
+            }
+            
+        }
+        ,{
+            "path" : "pages/question/updateAnswer/updateAnswer",
+            "style": {
+            	"navigationStyle": "custom", // 隐藏系统导航栏
+            	"navigationBarTextStyle": "white" // 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
+            }
+            
+        }
+        ,{
+            "path" : "pages/question/aQuestion/aQuestion",
+            "style": {
+            	"navigationStyle": "custom", // 隐藏系统导航栏
+            	"navigationBarTextStyle": "white" // 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
+            }
+            
+        }
+        ,{
+            "path" : "pages/posts/posts",
+            "style": {
+            	"navigationStyle": "custom", // 隐藏系统导航栏
+            	"navigationBarTextStyle": "white" // 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
+            }
+            
+        }
+        ,{
+            "path" : "pages/posts/add/add",
+            "style": {
+            	"navigationStyle": "custom", // 隐藏系统导航栏
+            	"navigationBarTextStyle": "white" // 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
+            }
+            
+        }
+        ,{
+            "path" : "pages/posts/reply/reply",
+            "style": {
+            	"navigationStyle": "custom", // 隐藏系统导航栏
+            	"navigationBarTextStyle": "white" // 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
+            }
+            
+        }
+        ,{
+            "path" : "pages/record/record",
+           "style": {
+           	"navigationStyle": "custom", // 隐藏系统导航栏
+           	"navigationBarTextStyle": "white" // 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
+           }
+        }
+        ,{
+            "path" : "pages/record/password/password",
+            "style": {
+            	"navigationStyle": "custom", // 隐藏系统导航栏
+            	"navigationBarTextStyle": "white" // 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
+            }
+            
+        }
+        ,{
+            "path" : "pages/record/edit/edit",
+            "style": {
+            	"navigationStyle": "custom", // 隐藏系统导航栏
+            	"navigationBarTextStyle": "white" // 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
+            }
+            
+        }
+        ,{
+            "path" : "pages/record/get/get",
+            "style": {
+            	"navigationStyle": "custom", // 隐藏系统导航栏
+            	"navigationBarTextStyle": "white" // 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
+            }
+            
+        }
+        ,{
+            "path" : "pages/record/test/test",
+            "style": {
+            	"navigationStyle": "custom", // 隐藏系统导航栏
+            	"navigationBarTextStyle": "white" // 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
+            }
+            
+        }
+        ,{
+            "path" : "pages/article/question_test/question_test",
+            "style": {
+            	"navigationStyle": "custom", // 隐藏系统导航栏
+            	"navigationBarTextStyle": "white" // 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
+            }
+            
+        }
+        ,{
+            "path" : "pages/Login/Login",
+            "style": {
+            	"navigationStyle": "custom", // 隐藏系统导航栏
+            	"navigationBarTextStyle": "white" // 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
+            }
+            
+        }
+        ,{
+            "path" : "pages/Register/Register",
+            "style": {
+            	"navigationStyle": "custom", // 隐藏系统导航栏
+            	"navigationBarTextStyle": "white" // 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
+            }
+            
+        }
+        ,{
+            "path" : "pages/posts/show/show",
+            "style": {
+            	"navigationStyle": "custom", // 隐藏系统导航栏
+            	"navigationBarTextStyle": "white" // 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
+            }
+            
+        }
+    ],
+	"tabBar": {
+		"list": [{
+				"pagePath": "pages/index/index"
+			},
+			{
+				"pagePath": "pages/question/question"
+			},
+			{
+				"pagePath": "pages/posts/posts"
+			},
+			{
+				"pagePath": "pages/record/record"
+			}
+		]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	}
+}

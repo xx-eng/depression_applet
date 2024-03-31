@@ -1,0 +1,26 @@
+
+.acontent {
+	width: 90%;
+	margin-left: 5%;
+}
+.uni-label {
+	line-height: 40px;
+	font-size: 30pt;
+	color: #da8000;
+}
+.uni-input {
+	height: 30px;
+	line-height: 30px;
+	font-size: 15px;
+	padding: 0px;
+	background-color: #FFFFFF;
+	border: 0.5rpx solid #da8000;
+}
+.uni-textarea {
+	width: 100%;
+	border: 0.5rpx solid #da8000;
+}
+.ql-container {
+	border: 1rpx solid #f4f4f7;
+}
+
